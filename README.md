@@ -1,7 +1,11 @@
 # hugo-bare-bones
 
 This is a project to try out and demo creating a hugo site and theme from scratch.
+It's main purpose is to understand how hugo works, as most themes are quite big 
+and thus require some time to find and understand everything. This very small 
+site should make it easier to understand hugo and have a playground for own experiments.
 
+## Usage
 run 
 
     hugo server --buildDrafts
@@ -14,6 +18,12 @@ http://localhost:1313/
 or 
 
 http://localhost:1313/hugo-bare-bones
+
+# How to create a minimal running site with hugo
+
+This documents the additions necessary to create a very small hugo site containing
+only the essentials. You can look at the individual commits, the git diffs and this
+log of the changes I made:
 
 ## files created for a minimal site
 
@@ -49,6 +59,17 @@ Just a few more steps...
 See documentation at https://gohugo.io/.
 ```
 
+## add github action
+
+    mkdir -p .github/workflows
+    cp ../hugo-geekdoc-tryout/.github/workflows/gh-pages.yml .github/workflows
+    code .github/workflows/gh-pages.yml
+
+edit this line in [.github/workflows/gh-pages.yml](.github/workflows/gh-pages.yml)
+to set the correct baseURL for the site: 
+
+    hugo -b https://about-hugo.github.io/hugo-bare-bones
+
 ## History
 
 all commands I've entered (pick and choose, don't just copy...)
@@ -63,3 +84,5 @@ all commands I've entered (pick and choose, don't just copy...)
     code layouts/_default/baseof.html
     code layouts/_default/list.html
     code layouts/_default/single.html
+
+
