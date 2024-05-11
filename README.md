@@ -4,6 +4,34 @@ This is a project to try out and demo creating a hugo site and theme from scratc
 It's main purpose is to understand how hugo works, as most themes are quite big 
 and thus require some time to find and understand everything. This very small 
 site should make it easier to understand hugo and have a playground for own experiments.
+## Overview
+This sites contains only three pages: Home, posts and one Post "Hello". 
+
+### Source Structure
+
+the site's home page is located in 
+
+    layouts/index.html
+
+The two content files are in hugo's content/ subfolder:
+
+    > tree content
+
+    content
+    └── posts
+        ├── _index.md
+        └── hello.md
+
+### Generated Site Structure
+
+    > tree public
+
+    public
+    ├── index.html
+    └── posts
+        ├── hello
+        │   └── index.html
+        └── index.html
 
 ## Usage
 run 
@@ -86,3 +114,23 @@ all commands I've entered (pick and choose, don't just copy...)
     code layouts/_default/single.html
 
 
+# Even Smaller
+
+the branch even_smaller (https://github.com/about-hugo/hugo-bare-bones/tree/even_smaller) 
+contains an even smaller site consisting of a single index.html file.
+
+if you look at the generated site in /public, you'll notice that 
+hugo always generates a sitemap and the taxonomy structure:
+```
+> tree public
+public
+├── index.html
+└── posts
+    ├── hello
+    │   └── index.html
+    └── index.html
+
+```
+
+https://gohugo.io/methods/page/sitemap/
+https://gohugo.io/content-management/taxonomies/

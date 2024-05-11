@@ -3,3 +3,7 @@
 baseURL = '/'
 languageCode = 'en-us'
 title = 'Hugo Bare Bones'
+
+# disable useful things to see a clean site structure
+# for demo and learning
+disableKinds = ['taxonomy', 'term', 'sitemap', 'RSS']
