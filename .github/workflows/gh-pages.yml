@@ -8,8 +8,7 @@ on:
 
 jobs:
   deploy:
-    permissions:
-      contents: write
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,3 +32,23 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+
+  test:
+    permissions:
+        contents: write
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+  
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          start: hugo server -p 1318
+        
