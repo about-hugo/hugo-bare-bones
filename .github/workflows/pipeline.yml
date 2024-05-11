@@ -1,4 +1,4 @@
-name: build and deploy hugo-bare-bones
+name: build, test, deploy pipeline
 
 on:
   push:
