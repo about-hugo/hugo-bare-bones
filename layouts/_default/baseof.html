@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <p>
+            <a href="{{ site.BaseURL }}">HOME</a> 
+            <a href="{{ site.BaseURL }}/posts">posts</a>
+            <a href="{{ site.BaseURL }}/posts/hello">posts/hello</a>
+        </p>
+        <h1>{{ .Title}}</h1>
+    {{- block "main" . }}{{- end }}
+    <hr/>
+    {{- block "about" . }}{{- end }}
+    </body>
+</html>
+
+
+{{ define "main" }}
+    main block in baseof.html
+    {{ .Content }}
+{{ end }}
+
+
+{{ define "about" }}
+<p>this is a minimal hugo web site for educational purposes. See 
+    <a href="https://github.com/about-hugo/hugo-bare-bones">
+        https://github.com/about-hugo/hugo-bare-bones</a>
+    and <a href ="https://about-hugo.github.io/examples/hugo-bare-bones/">
+        information about this example</a>
+    on the <a href="https://about-hugo.github.io/">
+        About Hugo Project Webpage</a>
+</p>
+{{ end }}
