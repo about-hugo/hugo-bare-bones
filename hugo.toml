@@ -1,4 +1,5 @@
 #baseURL = 'https://about-hugo.github.io/hugo-bare-bones'
+#baseURL = 'localhost:1313/hugo-bare-bones'
 baseURL = '/'
 languageCode = 'en-us'
 title = 'Hugo Bare Bones'
