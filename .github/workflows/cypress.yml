@@ -1,0 +1,31 @@
+name: Cypress Tests
+
+on: push
+
+jobs:
+  cypress-run:
+    permissions:
+        contents: write
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Install Ruby Dev                     
+        run: sudo apt-get install ruby-dev
+      
+      - name: Install AsciiDoctor
+        run: sudo gem install asciidoctor
+  
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+  
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: hugo server -p 1318

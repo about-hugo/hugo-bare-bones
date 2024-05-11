@@ -9,3 +9,9 @@ hugo:
 
 open_production:
 - open https://about-hugo.github.io/
+
+cypress:
+- npx cypress open
+
+test:
+- npx cypress run
